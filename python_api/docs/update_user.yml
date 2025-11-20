@@ -1,0 +1,48 @@
+---
+tags:
+  - Users
+summary: Update an existing user
+description: Update user details (name and/or email) by user ID.
+parameters:
+  - name: id
+    in: path
+    type: integer
+    required: true
+    description: The ID of the user to update
+  - in: body
+    name: body
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Updated Alice"
+        email:
+          type: string
+          example: "alice_new@example.com"
+responses:
+  200:
+    description: User updated successfully
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: User updated successfully
+  400:
+    description: Email already exists or invalid input
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Email already exists
+  404:
+    description: User not found
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: User not found
