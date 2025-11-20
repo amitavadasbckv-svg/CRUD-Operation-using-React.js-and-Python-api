@@ -1,0 +1,24 @@
+---
+tags:
+  - Users
+summary: Add a new user
+description: Insert a new user into the database
+consumes:
+  - application/json
+parameters:
+  - in: body
+    name: body
+    description: User data
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+responses:
+  201:
+    description: User added successfully
+  400:
+    description: Invalid input or email already exists
